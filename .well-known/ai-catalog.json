@@ -1,0 +1,28 @@
+{
+  "specVersion": "1.0",
+  "entries": [
+    {
+      "identifier": "urn:air:dakshu007.github.io:portfolio:tharani-muthukumar-profile",
+      "displayName": "Tharani Muthukumar: Growth Marketer portfolio (llms.txt)",
+      "description": "Markdown map of Tharani Muthukumar's portfolio: a B2B SaaS growth marketer and Computer Science Engineering student (Class of 2027) from Coimbatore, India.",
+      "type": "text/markdown; profile=\"urn:air:agent-skills\"",
+      "url": "https://dakshu007.github.io/tharau-portfolio/llms.txt",
+      "representativeQueries": [
+        "Who is Tharani Muthukumar?",
+        "What did Tharani Muthukumar do at Cartrabbit on Yuko Loyalty?",
+        "How do I contact Tharani Muthukumar, growth marketer in Coimbatore?"
+      ]
+    },
+    {
+      "identifier": "urn:air:dakshu007.github.io:portfolio:tharani-muthukumar-full",
+      "displayName": "Tharani Muthukumar: full profile (Markdown)",
+      "description": "Every fact from the portfolio in one Markdown document: experience, projects, highlights, skills, education and FAQ.",
+      "type": "text/markdown; profile=\"urn:air:agent-skills\"",
+      "url": "https://dakshu007.github.io/tharau-portfolio/llms-full.txt",
+      "representativeQueries": [
+        "What skills and tools does Tharani Muthukumar use?",
+        "What projects has Tharani Muthukumar built?"
+      ]
+    }
+  ]
+}

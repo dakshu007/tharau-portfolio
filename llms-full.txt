@@ -1,0 +1,120 @@
+# Tharani Muthukumar: Growth Marketer · B2B SaaS
+
+> Computer Science Engineering student (Class of 2027) at Dr. N.G.P. Institute of Technology, Coimbatore. Based in Coimbatore, Tamil Nadu, India.
+
+Canonical URL: https://dakshu007.github.io/tharau-portfolio/
+Email: tharanimuthukumar12@gmail.com
+LinkedIn: https://www.linkedin.com/search/results/people/?keywords=Tharani%20Muthukumar%20Cartrabbit
+Résumé: https://dakshu007.github.io/tharau-portfolio/Tharani-Muthukumar-Resume.pdf
+Last updated: 2026-10-25
+
+"I like understanding products, finding the right positioning, and making them matter to the right people."
+
+## About
+
+I'm a Computer Science engineering student who found her way into growth marketing and never looked back. At Cartrabbit, I spent four months on Yuko Loyalty, learning by doing: understanding customers, working on product positioning, experimenting with approaches and figuring out how to communicate value.
+
+My CS background lets me work comfortably with data and tools, from Power BI dashboards to automation workflows in n8n. My love for people shows up on stage: I hosted Cartrabbit's Annual Event 2026.
+
+These days I look at every business through a marketing lens: what they sell, who it's for, and how I'd take it to market.
+
+## At a glance
+
+- 4 months in growth marketing at Cartrabbit
+- 1,300+ LinkedIn followers built through storytelling
+- 200+ reactions on my event-hosting post
+- 2 internships: marketing and full-stack
+
+## Experience
+
+### Growth Marketer (Internship), Cartrabbit
+Jun 2026 – Sep 2026 · Coimbatore
+
+- Worked on growth and product marketing for Yuko Loyalty, Cartrabbit's customer loyalty and retention product
+- Worked with regional D2C brands, focused on retention: helping them turn loyal customers into repeat orders
+- Customer research, product positioning and messaging experiments
+- Took part in sales demos alongside the team
+- Hosted the company's Annual Event 2026 on 3 July 2026
+
+### Full Stack Developer Intern, App Innovation Technologies
+Jun 2025 · Coimbatore
+
+- Hands-on full-stack development internship during my Computer Science degree
+
+## Projects and case studies
+
+### Meta Ad Library intelligence workflow
+Automation · Competitor intelligence
+
+An n8n automation that scrapes and analyses competitor ads from the Meta Ad Library, so ad research turns into a repeatable insight engine instead of a manual scroll.
+
+Deliverables: n8n workflow, PDF insights report, Loom walkthrough. Tags: n8n, Meta Ad Library, Competitor ad analysis.
+
+### Yuko Loyalty: turning loyal customers into repeat orders
+Retention marketing · Cartrabbit
+
+Brands were losing repeat customers. I worked on how Yuko Loyalty is positioned and messaged, and on outreach to brands, so the value of a loyalty and retention program lands with the right people.
+
+Deliverables: Positioning, Messaging, Brand outreach. Tags: Retention, Loyalty, B2B SaaS.
+
+### Power BI dashboard
+Data · Certification work
+
+A dashboard built during my Data Analytics using Power BI certification: turning raw data into a view a marketer can act on.
+
+Deliverables: Data modelling, Dashboard design, Insight storytelling. Tags: Microsoft Power BI, Data analytics.
+
+## Highlights
+
+- **Hosted Cartrabbit's Annual Event 2026.** On stage in front of the whole company. My post about it got 200+ reactions.
+- **From Computer Science to growth marketing.** Made the switch and was trusted with customer-facing work during the internship.
+- **Recognised for sales demos.** Called out by Cartrabbit's People Ops team for my work in sales demos while still a student.
+- **NCC Air Wing Cadet, Flight Commander.** National Cadet Corps, 2017 – 2019.
+- **A LinkedIn audience of 1,300+.** Built through storytelling posts about marketing, work and growing up into a career.
+
+## Skills
+
+- **Marketing:** Growth marketing, Product marketing, Positioning & messaging, Retention & loyalty marketing, Customer research, Competitor ad analysis, Sales demos, LinkedIn content & storytelling
+- **Data & tools:** Microsoft Power BI, n8n automation, Loom
+- **Technical:** Full-stack development basics, Computer Science Engineering
+- **Other:** Project management, Public speaking, Event hosting
+
+## Education
+
+- B.E. Computer Science Engineering, Dr. N.G.P. Institute of Technology, Coimbatore (Class of 2027)
+- Schooling, RVS Group of Institutions, Coimbatore (School)
+
+## Certifications
+
+- Data Analytics using Power BI
+
+## Leadership and volunteering
+
+- NCC Air Wing Cadet, Flight Commander, National Cadet Corps (Jun 2017 – Apr 2019 · 1 yr 11 mos)
+
+## Writing (LinkedIn)
+
+- "A ₹5 Kurkure made me ignore a job opportunity": How I started thinking like a marketer.
+- "Just two months into my first corporate job…": Hosting Cartrabbit's Annual Event 2026.
+- "Conversation & Conversion": The sales demo story.
+
+## Frequently asked questions
+
+### Who is Tharani Muthukumar?
+Tharani Muthukumar is a growth marketer focused on B2B SaaS and a final-year Computer Science Engineering student (Class of 2027) at Dr. N.G.P. Institute of Technology in Coimbatore, India.
+
+### What did Tharani Muthukumar do at Cartrabbit?
+From June to September 2026 she was a Growth Marketer intern at Cartrabbit, working on growth and product marketing for Yuko Loyalty, Cartrabbit's customer loyalty and retention product. Her work covered customer research, product positioning, messaging experiments, retention work with regional D2C brands and sales demos. She also hosted Cartrabbit's Annual Event 2026.
+
+### What tools and skills does Tharani use?
+Growth and product marketing, positioning and messaging, retention and loyalty marketing, customer research and competitor ad analysis, plus Microsoft Power BI, n8n automation and Loom. Her Computer Science degree and a full-stack internship at App Innovation Technologies give her a technical foundation.
+
+### What projects has Tharani built?
+An n8n workflow that scrapes and analyses competitor ads from the Meta Ad Library (with a PDF insights report and Loom walkthrough), retention marketing work for Yuko Loyalty, and a Power BI dashboard from her Data Analytics using Power BI certification.
+
+### How can I contact Tharani Muthukumar?
+Email tharanimuthukumar12@gmail.com or connect with her on LinkedIn. She is based in Coimbatore, India.
+
+## Keywords
+
+Tharani Muthukumar, Growth Marketer B2B SaaS, growth marketer Coimbatore, product marketing, retention marketing, loyalty marketing, positioning and messaging, customer research, competitor ad analysis, n8n automation, Power BI, Yuko Loyalty, Cartrabbit, marketing portfolio
