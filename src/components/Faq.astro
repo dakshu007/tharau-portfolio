@@ -1,0 +1,20 @@
+---
+import Plus from '@lucide/astro/icons/plus';
+import { faq } from '../data/site';
+---
+<section class="section cv" id="faq" aria-labelledby="faq-title" tabindex="-1">
+  <div class="container faq">
+    <div>
+      <p class="eyebrow" data-reveal><span class="eyebrow__num">07</span> Quick answers</p>
+      <h2 id="faq-title" class="h2" data-reveal style="margin-top:24px">Tharani, <span class="grad-text">at a glance.</span></h2>
+    </div>
+    <div class="faq__list">
+      {faq.map((f, i) => (
+        <details data-reveal open={i === 0}>
+          <summary>{f.q}<Plus /></summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

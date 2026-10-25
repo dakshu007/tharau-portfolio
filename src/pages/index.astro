@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import Marquee from '../components/Marquee.astro';
+import About from '../components/About.astro';
+import Experience from '../components/Experience.astro';
+import Work from '../components/Work.astro';
+import Highlights from '../components/Highlights.astro';
+import Skills from '../components/Skills.astro';
+import Writing from '../components/Writing.astro';
+import Faq from '../components/Faq.astro';
+import Contact from '../components/Contact.astro';
+---
+<Base>
+  <script is:inline>
+    (function (d) {
+      var c = d.documentElement.classList;
+      c.add('js');
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) c.add('intro');
+    })(document);
+  </script>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true" data-progress></div>
+  <Nav />
+  <main id="main">
+    <Hero />
+    <Marquee />
+    <About />
+    <Experience />
+    <Work />
+    <Highlights />
+    <Skills />
+    <Writing />
+    <Faq />
+  </main>
+  <Contact />
+  <div class="grain" aria-hidden="true" data-anim></div>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+  <script>
+    import '../scripts/main.ts';
+  </script>
+</Base>

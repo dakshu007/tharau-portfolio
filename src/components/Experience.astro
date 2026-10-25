@@ -1,0 +1,74 @@
+---
+import CalendarDays from '@lucide/astro/icons/calendar-days';
+import MapPin from '@lucide/astro/icons/map-pin';
+import CircleCheck from '@lucide/astro/icons/circle-check';
+import { experience } from '../data/site';
+---
+<section class="section cv" id="experience" aria-labelledby="exp-title" tabindex="-1">
+  <div class="container exp">
+    <div class="exp__aside">
+      <p class="eyebrow" data-reveal><span class="eyebrow__num">02</span> Experience</p>
+      <h2 id="exp-title" class="h2" data-reveal>Where I learned <span class="grad-text">by doing.</span></h2>
+      <p class="lead" data-reveal>
+        Four months of hands-on growth marketing in my final year, on a real B2B SaaS product, with real
+        customers and real demos.
+      </p>
+
+      <div class="growth" data-growth data-reveal aria-hidden="true">
+        <svg viewBox="0 0 400 250" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="growthGrad" x1="0" x2="1" y1="0" y2="0">
+              <stop offset="0" stop-color="#9b8aff"></stop>
+              <stop offset=".5" stop-color="#ff5c93"></stop>
+              <stop offset="1" stop-color="#ffb35c"></stop>
+            </linearGradient>
+            <linearGradient id="growthFill" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0" stop-color="#ff7a3d" stop-opacity=".28"></stop>
+              <stop offset="1" stop-color="#ff7a3d" stop-opacity="0"></stop>
+            </linearGradient>
+          </defs>
+          <g class="growth__grid">
+            <line x1="0" x2="400" y1="62" y2="62"></line>
+            <line x1="0" x2="400" y1="125" y2="125"></line>
+            <line x1="0" x2="400" y1="188" y2="188"></line>
+          </g>
+          <path class="growth__area" d="M0,232 C60,228 90,214 140,196 C200,174 220,150 260,118 C300,86 340,52 400,22 L400,250 L0,250 Z"></path>
+          <path class="growth__path" pathLength="1" d="M0,232 C60,228 90,214 140,196 C200,174 220,150 260,118 C300,86 340,52 400,22"></path>
+        </svg>
+        <span class="growth__label growth__label--1"><i></i>2025 · Full-stack intern</span>
+        <span class="growth__label growth__label--2"><i></i>CS → Marketing</span>
+        <span class="growth__label growth__label--3"><i></i>2026 · Growth Marketer</span>
+      </div>
+    </div>
+
+    <ol class="timeline">
+      {experience.map((job, i) => (
+        <li class:list={['job', { 'job--feature': i === 0 }]} data-reveal style={`--d:${i * 100}`}>
+          <div class="job__top">
+            <span class="job__period"><CalendarDays />{job.period}</span>
+            <span class="job__period"><MapPin />{job.location}</span>
+          </div>
+          <div class="job__company">
+            <span class="job__logo" aria-hidden="true">{job.company.slice(0, 1)}</span>
+            <div>
+              <h3 class="h3">{job.company}</h3>
+              <p class="job__role">{job.role}</p>
+            </div>
+          </div>
+          {job.points.length > 1 ? (
+            <ul class="job__points">
+              {job.points.map((p) => (
+                <li><CircleCheck />{p}</li>
+              ))}
+            </ul>
+          ) : (
+            <p class="job__summary">{job.summary}</p>
+          )}
+          <ul class="job__tags" aria-label="Focus areas">
+            {job.tags.map((t) => <li class="tag">{t}</li>)}
+          </ul>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

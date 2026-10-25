@@ -1,0 +1,46 @@
+---
+import Mail from '@lucide/astro/icons/mail';
+import Download from '@lucide/astro/icons/download';
+import Copy from '@lucide/astro/icons/copy';
+import Check from '@lucide/astro/icons/check';
+import ArrowUp from '@lucide/astro/icons/arrow-up';
+import Clock from '@lucide/astro/icons/clock';
+import LinkedInIcon from './LinkedInIcon.astro';
+import { site } from '../data/site';
+
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+<section class="contact cv" id="contact" aria-labelledby="contact-title" tabindex="-1">
+  <div class="container">
+    <p class="eyebrow" data-reveal style="justify-content:center"><span class="eyebrow__num">08</span> Contact</p>
+    <h2 id="contact-title" class="contact__title display" data-reveal>Let's make it <span class="grad-text">matter.</span></h2>
+    <p class="lead contact__lead" data-reveal>
+      Building a B2B SaaS product that needs sharper positioning, better retention or a story people remember? I'd love to hear about it.
+    </p>
+    <div class="contact__actions" data-reveal>
+      <a class="btn btn--primary btn--lg" href={`mailto:${site.email}`} data-magnetic><Mail /> Email me</a>
+      <a class="btn btn--ghost btn--lg" href={site.linkedin} target="_blank" rel="noopener" data-magnetic><LinkedInIcon /> LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+      <a class="btn btn--ghost btn--lg" href={`${base}${site.resume}`} download data-magnetic><Download /> Download résumé</a>
+    </div>
+    <p class="contact__email" data-reveal>
+      <a href={`mailto:${site.email}`}>{site.email}</a>
+      <button class="copy-btn" type="button" data-copy={site.email} aria-label="Copy email address">
+        <Copy class="i-copy" /><Check class="i-check" />
+      </button>
+    </p>
+    <p class="sr-only" role="status" aria-live="polite" data-copy-status></p>
+  </div>
+</section>
+
+<footer class="footer cv">
+  <div class="container footer__inner">
+    <p>© 2026 {site.name}. Growth Marketer · B2B SaaS.</p>
+    <p class="footer__clock"><Clock width={16} height={16} /> Coimbatore <span data-clock>IST</span></p>
+    <ul class="footer__links">
+      <li><a href={`mailto:${site.email}`}><Mail /> Email</a></li>
+      <li><a href={site.linkedin} target="_blank" rel="noopener"><LinkedInIcon size={16} /> LinkedIn<span class="sr-only"> (opens in a new tab)</span></a></li>
+      <li><a href={`${base}llms.txt`}>llms.txt</a></li>
+      <li><a href="#top"><ArrowUp /> Back to top</a></li>
+    </ul>
+  </div>
+</footer>

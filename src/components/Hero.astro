@@ -1,0 +1,105 @@
+---
+import { Picture } from 'astro:assets';
+import portrait from '../assets/tharani.jpg';
+import Mail from '@lucide/astro/icons/mail';
+import Download from '@lucide/astro/icons/download';
+import MapPin from '@lucide/astro/icons/map-pin';
+import Repeat from '@lucide/astro/icons/repeat';
+import Target from '@lucide/astro/icons/target';
+import TrendingUp from '@lucide/astro/icons/trending-up';
+import Mic from '@lucide/astro/icons/mic';
+import LinkedInIcon from './LinkedInIcon.astro';
+import { site } from '../data/site';
+
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const ringText = 'Growth marketer • B2B SaaS • Class of 2027 •';
+---
+<section class="hero" id="top" aria-labelledby="hero-title" data-anim>
+  <div class="hero__bg" aria-hidden="true">
+    <div class="hero__blobs"><span></span><span></span><span></span></div>
+    <canvas class="hero__canvas" data-shader></canvas>
+    <div class="hero__grid"></div>
+    <div class="hero__shade"></div>
+  </div>
+
+  <div class="container hero__inner">
+    <div class="hero__copy">
+      <div class="hero__meta">
+        <span class="chip" data-intro style="--i:0"><span class="pulse-dot" aria-hidden="true"></span>Final-year CSE · Class of 2027</span>
+        <span class="chip" data-intro style="--i:1"><MapPin />Coimbatore, India</span>
+      </div>
+
+      <p class="hero__role" data-intro style="--i:2"><i aria-hidden="true"></i>Growth Marketer · B2B SaaS</p>
+
+      <h1 id="hero-title" class="hero__title display">
+        <span class="line"><span class="word">{site.firstName}</span></span>
+        <span class="line"><span class="word">{site.lastName}<span class="dot">.</span></span></span>
+      </h1>
+
+      <p class="hero__lede" data-intro style="--i:4">
+        <span class="q" aria-hidden="true">“</span>I like understanding products, finding the right positioning, and making them
+        matter to the <span class="grad-text">right people.</span><span class="q" aria-hidden="true">”</span>
+      </p>
+      <p class="hero__sub" data-intro style="--i:5">{site.subLine}.</p>
+
+      <div class="hero__ctas" data-intro style="--i:6">
+        <a class="btn btn--primary" href={`mailto:${site.email}`} data-magnetic>
+          <Mail /> Email me
+        </a>
+        <a class="btn btn--ghost" href={site.linkedin} target="_blank" rel="noopener" data-magnetic>
+          <LinkedInIcon /> LinkedIn<span class="sr-only"> (opens in a new tab)</span>
+        </a>
+        <a class="btn btn--ghost" href={`${base}${site.resume}`} download data-magnetic>
+          <Download /> Résumé
+        </a>
+      </div>
+    </div>
+
+    <div class="hero__visual" data-tilt>
+      <div class="portrait-wrap">
+        <figure class="portrait">
+          <Picture
+            src={portrait}
+            alt="Tharani Muthukumar smiling at her phone, seated in a wood-panelled booth with plants behind her"
+            widths={[360, 480, 640, 800]}
+            sizes="(min-width: 1024px) 470px, 360px"
+            formats={['avif', 'webp']}
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            quality={50}
+          />
+          <figcaption class="portrait__caption">
+            <span>Tharani M.</span>
+            <span>Coimbatore · 2026</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="spin-badge" aria-hidden="true">
+        <svg class="ring" viewBox="0 0 120 120">
+          <defs><path id="ring-path" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"></path></defs>
+          <text textLength="284" lengthAdjust="spacing"><textPath href="#ring-path" textLength="284" lengthAdjust="spacing">{ringText}</textPath></text>
+        </svg>
+        <span class="spin-badge__core"><TrendingUp /></span>
+      </div>
+
+      <div class="float-badge float-badge--a" aria-hidden="true">
+        <span class="float-badge__icon"><Repeat /></span>
+        <span><b>Yuko Loyalty</b><small>Retention marketing</small></span>
+      </div>
+      <div class="float-badge float-badge--b" aria-hidden="true">
+        <span class="float-badge__icon"><Target /></span>
+        <span><b>Positioning</b><small>&amp; messaging</small></span>
+      </div>
+      <div class="float-badge float-badge--c" aria-hidden="true">
+        <span class="float-badge__icon"><Mic /></span>
+        <span><b>On stage</b><small>Annual Event 2026</small></span>
+      </div>
+    </div>
+  </div>
+
+  <a class="scroll-cue" href="#about" aria-label="Scroll to About">
+    <span aria-hidden="true">Scroll</span><i aria-hidden="true"></i>
+  </a>
+</section>

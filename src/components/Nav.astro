@@ -1,0 +1,49 @@
+---
+import ArrowUpRight from '@lucide/astro/icons/arrow-up-right';
+import House from '@lucide/astro/icons/house';
+import UserRound from '@lucide/astro/icons/user-round';
+import Briefcase from '@lucide/astro/icons/briefcase';
+import Layers from '@lucide/astro/icons/layers';
+import Sparkles from '@lucide/astro/icons/sparkles';
+import Mail from '@lucide/astro/icons/mail';
+import { nav, site } from '../data/site';
+
+const dock = [
+  { href: '#top', label: 'Home', Icon: House },
+  { href: '#about', label: 'About', Icon: UserRound },
+  { href: '#experience', label: 'Journey', Icon: Briefcase },
+  { href: '#work', label: 'Work', Icon: Layers },
+  { href: '#highlights', label: 'Wins', Icon: Sparkles },
+  { href: '#contact', label: 'Contact', Icon: Mail },
+];
+---
+<header class="nav" data-nav>
+  <div class="nav__bar">
+    <a href="#top" class="nav__logo" aria-label="Tharani Muthukumar, back to top" data-magnetic>
+      <span class="logo-mark" aria-hidden="true">TM</span>
+      <span>Tharani<span class="muted">.</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <div class="nav__track" data-nav-list>
+        <span class="nav__pill" aria-hidden="true" data-nav-pill></span>
+        <ul>
+          {nav.map((item) => (
+            <li><a href={item.href} data-spy={item.href.slice(1)}>{item.label}</a></li>
+          ))}
+        </ul>
+      </div>
+    </nav>
+    <a class="btn btn--primary btn--sm" href={`mailto:${site.email}`} data-magnetic>
+      Let's talk <ArrowUpRight class="icon-arrow" />
+    </a>
+  </div>
+</header>
+
+<nav class="dock" aria-label="Quick sections" data-dock>
+  {dock.map(({ href, label, Icon }) => (
+    <a href={href} data-spy={href.slice(1)}>
+      <Icon />
+      <span>{label}</span>
+    </a>
+  ))}
+</nav>

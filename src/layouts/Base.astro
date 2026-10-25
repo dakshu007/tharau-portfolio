@@ -1,0 +1,198 @@
+---
+import '../styles/global.css';
+import { site, seo, experience, skills, faq } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+  bodyClass?: string;
+}
+
+const {
+  title = seo.metaTitle,
+  description = seo.metaDescription,
+  noindex = false,
+  bodyClass = '',
+} = Astro.props;
+
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL(`${base}og.png`, Astro.site).href;
+const photo = new URL(`${base}tharani-muthukumar.jpg`, Astro.site).href;
+const keywords = [seo.focusKeyword, seo.primaryKeyword, ...seo.secondaryKeywords].join(', ');
+
+const personId = `${site.url}#person`;
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${site.url}#website`,
+      url: site.url,
+      name: `${site.name} | Portfolio`,
+      inLanguage: 'en-IN',
+      publisher: { '@id': personId },
+    },
+    {
+      '@type': 'ProfilePage',
+      '@id': `${site.url}#profile`,
+      url: site.url,
+      name: seo.metaTitle,
+      description: seo.metaDescription,
+      inLanguage: 'en-IN',
+      isPartOf: { '@id': `${site.url}#website` },
+      about: { '@id': personId },
+      mainEntity: { '@id': personId },
+      primaryImageOfPage: photo,
+      dateModified: '2026-10-25',
+    },
+    {
+      '@type': 'Person',
+      '@id': personId,
+      name: site.name,
+      givenName: site.firstName,
+      familyName: site.lastName,
+      jobTitle: 'Growth Marketer',
+      description: `${site.name} is a growth marketer focused on B2B SaaS and a Computer Science Engineering student (Class of 2027) at Dr. N.G.P. Institute of Technology, Coimbatore.`,
+      url: site.url,
+      image: photo,
+      email: `mailto:${site.email}`,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Coimbatore',
+        addressRegion: 'Tamil Nadu',
+        addressCountry: 'IN',
+      },
+      alumniOf: [
+        { '@type': 'CollegeOrUniversity', name: 'Dr. N.G.P. Institute of Technology', address: 'Coimbatore, India' },
+        { '@type': 'EducationalOrganization', name: 'RVS Group of Institutions', address: 'Coimbatore, India' },
+      ],
+      hasOccupation: {
+        '@type': 'Occupation',
+        name: 'Growth Marketer',
+        occupationLocation: { '@type': 'City', name: 'Coimbatore' },
+        skills: skills.flatMap((s) => s.items).join(', '),
+      },
+      hasCredential: {
+        '@type': 'EducationalOccupationalCredential',
+        name: 'Data Analytics using Power BI',
+        credentialCategory: 'certificate',
+      },
+      knowsAbout: [
+        'Growth marketing',
+        'B2B SaaS marketing',
+        'Product marketing',
+        'Positioning and messaging',
+        'Retention marketing',
+        'Loyalty marketing',
+        'Customer research',
+        'Competitor ad analysis',
+        'Sales demos',
+        'LinkedIn storytelling',
+        'Microsoft Power BI',
+        'n8n',
+        'Public speaking',
+      ],
+      memberOf: {
+        '@type': 'OrganizationRole',
+        roleName: 'Air Wing Cadet, Flight Commander',
+        startDate: '2017-06',
+        endDate: '2019-04',
+        memberOf: { '@type': 'Organization', name: 'National Cadet Corps' },
+      },
+      worksFor: experience.map((e) => ({
+        '@type': 'EmployeeRole',
+        roleName: e.role,
+        startDate: e.start,
+        endDate: e.end,
+        worksFor: { '@type': 'Organization', name: e.company, address: e.location },
+      })),
+      ...(site.linkedinIsProfile ? { sameAs: [site.linkedin] } : {}),
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': `${site.url}#faq`,
+      mainEntity: faq.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en-IN" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <!--
+      SEO brief
+      Focus keyword:      Tharani Muthukumar
+      Primary keyword:    Growth Marketer B2B SaaS
+      Secondary keywords: see `seo.secondaryKeywords` in src/data/site.ts
+    -->
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content={site.name} />
+    <meta
+      name="robots"
+      content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'}
+    />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#09090b" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- Open Graph / social -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content={`${site.name} | Portfolio`} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Tharani Muthukumar, Growth Marketer for B2B SaaS" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="profile:first_name" content={site.firstName} />
+    <meta property="profile:last_name" content={site.lastName} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Icons & app -->
+    <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml" />
+    <link rel="icon" href={`${base}favicon-32.png`} sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href={`${base}apple-touch-icon.png`} />
+    <link rel="manifest" href={`${base}manifest.webmanifest`} />
+
+    <!-- AI / agent discovery: llms.txt, full profile in Markdown, ARD catalog -->
+    <link rel="alternate" type="text/markdown" title="llms.txt" href={`${base}llms.txt`} />
+    <link rel="alternate" type="text/markdown" title="Full profile (Markdown)" href={`${base}llms-full.txt`} />
+    <link rel="ai-catalog" href={`${base}.well-known/ai-catalog.json`} type="application/ai-catalog+json" />
+    <link rel="sitemap" type="application/xml" href={`${base}sitemap.xml`} />
+
+    <!-- Self-hosted fonts: Google Sans (text) + Poppins (display) -->
+    <link rel="preload" href={`${base}fonts/poppins-600.woff2`} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={`${base}fonts/google-sans-400.woff2`} as="font" type="font/woff2" crossorigin />
+    <style is:inline set:html={`
+      @font-face{font-family:'Google Sans';font-style:normal;font-weight:400;font-display:swap;src:url(${base}fonts/google-sans-400.woff2) format('woff2')}
+      @font-face{font-family:'Google Sans';font-style:normal;font-weight:500 700;font-display:swap;src:url(${base}fonts/google-sans-500.woff2) format('woff2')}
+      @font-face{font-family:'Poppins';font-style:normal;font-weight:600;font-display:swap;src:url(${base}fonts/poppins-600.woff2) format('woff2')}
+      .grain{background-image:url(${base}grain.png)}
+      @font-face{font-family:'Poppins';font-style:normal;font-weight:500;font-display:swap;src:url(${base}fonts/poppins-500.woff2) format('woff2')}
+    `} />
+
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+
+    <!-- ANALYTICS: paste the analytics embed code here -->
+  </head>
+  <body class={bodyClass}>
+    <slot />
+  </body>
+</html>

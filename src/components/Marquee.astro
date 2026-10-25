@@ -1,0 +1,18 @@
+---
+import Sparkle from '@lucide/astro/icons/sparkle';
+import { marquee } from '../data/site';
+---
+<div class="marquee-wrap" aria-hidden="true" data-anim>
+<div class="marquee" data-marquee>
+  <div class="marquee__track">
+    {[0, 1].map(() => (
+      <div class="marquee__group">
+        {marquee.map((item) => (
+          <span class="marquee__item">{item}<Sparkle /></span>
+        ))}
+      </div>
+    ))}
+  </div>
+</div>
+</div>
+<p class="sr-only">Focus areas: {marquee.join(', ')}.</p>

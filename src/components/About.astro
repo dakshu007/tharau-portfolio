@@ -1,0 +1,37 @@
+---
+import { about, stats } from '../data/site';
+
+// Words in the statement that light up in the accent colour.
+const keys = new Set(['growth', 'marketing', 'Yuko', 'Loyalty,', 'positioning,', 'value.', 'customers,']);
+const words = about[0].split(' ');
+---
+<section class="section" id="about" aria-labelledby="about-title" tabindex="-1">
+  <div class="container">
+    <div class="section__head">
+      <p class="eyebrow" data-reveal><span class="eyebrow__num">01</span> About me</p>
+      <h2 id="about-title" class="sr-only">About Tharani Muthukumar</h2>
+    </div>
+
+    <div class="about__grid">
+      <p class="about__statement" data-words>
+        {words.map((w) => <span class:list={['w', { k: keys.has(w) }]}>{w} </span>)}
+      </p>
+
+      <div class="about__body">
+        {about.slice(1).map((p, i) => <p data-reveal style={`--d:${i * 120}`}>{p}</p>)}
+      </div>
+
+      <dl class="stats" data-reveal>
+        {stats.map((s) => (
+          <div class="stat">
+            <dt class="sr-only">{s.label}</dt>
+            <dd>
+              <span class="stat__num" data-count={s.value} data-suffix={s.suffix}>{s.value.toLocaleString('en-IN')}{s.suffix}</span>
+              <span class="stat__label" aria-hidden="true">{s.label}</span>
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </div>
+</section>

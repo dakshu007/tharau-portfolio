@@ -1,0 +1,103 @@
+---
+import ArrowRight from '@lucide/astro/icons/arrow-right';
+import Check from '@lucide/astro/icons/check';
+import Repeat from '@lucide/astro/icons/repeat';
+import ShoppingBag from '@lucide/astro/icons/shopping-bag';
+import Gift from '@lucide/astro/icons/gift';
+import Heart from '@lucide/astro/icons/heart';
+import RefreshCw from '@lucide/astro/icons/refresh-cw';
+import { projects } from '../data/site';
+
+const bars = [38, 52, 46, 64, 58, 78, 92];
+const nodes = [
+  { x: 16, y: 34, t: 'Schedule', s: 'Trigger' },
+  { x: 284, y: 34, t: 'Meta Ad Library', s: 'Scrape competitor ads' },
+  { x: 16, y: 196, t: 'Analyse ads', s: 'Hooks · offers · formats' },
+  { x: 284, y: 196, t: 'Insights report', s: 'PDF + Loom', out: true },
+];
+const wires = [
+  'M236,66 C260,66 260,66 284,66',
+  'M394,98 C394,150 126,146 126,196',
+  'M236,228 C260,228 260,228 284,228',
+];
+---
+<section class="section work" id="work" aria-labelledby="work-title" data-work tabindex="-1">
+  <div class="work__pin">
+    <div class="work__track" data-work-track>
+      <div class="work__intro" data-anim>
+        <p class="eyebrow" data-reveal><span class="eyebrow__num">03</span> Selected work</p>
+        <h2 id="work-title" class="h2" data-reveal>How I think, <span class="grad-text">in practice.</span></h2>
+        <p class="lead" data-reveal>
+          Automation, retention and data: three pieces of work that show how I think about growth, from
+          research to positioning to the dashboard.
+        </p>
+        <p class="work__hint" aria-hidden="true">Keep scrolling <ArrowRight /></p>
+      </div>
+
+      {projects.map((p) => (
+        <article class="case" aria-labelledby={`case-${p.id}`} data-reveal>
+          <div class="case__visual" aria-hidden="true" data-anim>
+            {p.visual === 'flow' && (
+              <div class="v-flow">
+                <svg viewBox="0 0 520 300">
+                  {wires.map((d) => <path class="wire" d={d}></path>)}
+                  {wires.map((d, i) => (
+                    <>
+                      <path class="wire-live" d={d}></path>
+                      <circle class="packet" r="4">
+                        <animateMotion dur="2.4s" repeatCount="indefinite" path={d} begin={`${i * 0.8}s`}></animateMotion>
+                      </circle>
+                    </>
+                  ))}
+                  {nodes.map((n) => (
+                    <g class:list={['node', { 'node--out': n.out }]} transform={`translate(${n.x} ${n.y})`}>
+                      <rect width="220" height="64" rx="14"></rect>
+                      <circle cx="24" cy="32" r="6"></circle>
+                      <text x="42" y="28">{n.t}</text>
+                      <text class="sub" x="42" y="46">{n.s}</text>
+                    </g>
+                  ))}
+                </svg>
+              </div>
+            )}
+            {p.visual === 'loop' && (
+              <div class="v-loop">
+                <div class="v-loop__ring">
+                  <span class="v-loop__orbit"></span>
+                  <span class="v-loop__core"><Repeat />Loyal<br />→ repeat</span>
+                  <span class="v-loop__stop" style="left:50%;top:0"><ShoppingBag />First order</span>
+                  <span class="v-loop__stop" style="left:100%;top:50%"><Gift />Rewards</span>
+                  <span class="v-loop__stop" style="left:50%;top:100%"><Heart />Comes back</span>
+                  <span class="v-loop__stop" style="left:0;top:50%"><RefreshCw />Repeat order</span>
+                </div>
+              </div>
+            )}
+            {p.visual === 'bars' && (
+              <div class="v-bars">
+                <div class="v-bars__kpis">
+                  {[0, 1, 2].map(() => (
+                    <div class="v-bars__kpi"><i></i><i></i></div>
+                  ))}
+                </div>
+                <div class="v-bars__chart">
+                  {bars.map((h, i) => <span style={`--h:${h}%;--d:${-i * 0.35}s`}></span>)}
+                </div>
+              </div>
+            )}
+          </div>
+          <div class="case__body">
+            <p class="case__kicker"><span>{p.kicker}</span><span class="case__index">{p.index}</span></p>
+            <h3 id={`case-${p.id}`} class="h3">{p.title}</h3>
+            <p>{p.body}</p>
+            <ul class="case__deliver" aria-label="Deliverables">
+              {p.deliverables.map((d) => (
+                <li><Check />{d}</li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </div>
+    <div class="work__progress" aria-hidden="true"><i></i></div>
+  </div>
+</section>

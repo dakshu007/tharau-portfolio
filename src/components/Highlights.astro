@@ -1,0 +1,39 @@
+---
+import Mic from '@lucide/astro/icons/mic';
+import TrendingUp from '@lucide/astro/icons/trending-up';
+import MessageCircle from '@lucide/astro/icons/message-circle';
+import Medal from '@lucide/astro/icons/medal';
+import Users from '@lucide/astro/icons/users';
+import { highlights } from '../data/site';
+
+const icons = { mic: Mic, trending: TrendingUp, message: MessageCircle, medal: Medal, users: Users } as const;
+const layout = ['tile--hero', '', '', 'tile--wide', 'tile--wide'];
+---
+<section class="section cv" id="highlights" aria-labelledby="hl-title" tabindex="-1">
+  <div class="container">
+    <div class="section__head section__head--split">
+      <div>
+        <p class="eyebrow" data-reveal><span class="eyebrow__num">04</span> Highlights</p>
+        <h2 id="hl-title" class="h2" data-reveal style="margin-top:24px">Moments I'm <span class="grad-text">proud of.</span></h2>
+      </div>
+      <p class="lead" data-reveal>From hosting a company-wide stage to sales demos while still a student, the wins that shaped how I work.</p>
+    </div>
+
+    <ul class="bento">
+      {highlights.map((h, i) => {
+        const Icon = icons[h.icon as keyof typeof icons];
+        return (
+          <li class:list={['tile', layout[i]]} data-spotlight data-reveal style={`--d:${i * 80}`}>
+            <span class="tile__icon"><Icon /></span>
+            {i === 0 && <span class="tile__wave" aria-hidden="true" data-anim><i></i><i></i><i></i><i></i><i></i></span>}
+            <h3 class="h3">{h.title}</h3>
+            <p>{h.body}</p>
+            {h.metric && (
+              <p class="tile__metric"><b>{h.metric}</b><span>{h.metricLabel}</span></p>
+            )}
+          </li>
+        );
+      })}
+    </ul>
+  </div>
+</section>

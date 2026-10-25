@@ -1,0 +1,30 @@
+---
+import Quote from '@lucide/astro/icons/quote';
+import ArrowUpRight from '@lucide/astro/icons/arrow-up-right';
+import { writing, site } from '../data/site';
+---
+<section class="section cv" id="writing" aria-labelledby="writing-title" tabindex="-1">
+  <div class="container">
+    <div class="section__head section__head--split">
+      <div>
+        <p class="eyebrow" data-reveal><span class="eyebrow__num">06</span> From my LinkedIn</p>
+        <h2 id="writing-title" class="h2" data-reveal style="margin-top:24px">Stories that <span class="grad-text">connect.</span></h2>
+      </div>
+      <p class="lead" data-reveal>Storytelling is half of marketing. A few of the posts behind my 1,300+ LinkedIn followers.</p>
+    </div>
+
+    <ul class="posts">
+      {writing.map((w, i) => (
+        <li class="post" data-spotlight data-reveal style={`--d:${i * 100}`}>
+          <Quote class="post__quote" />
+          <span class="tag" style="align-self:flex-start">{w.tag}</span>
+          <h3 class="post__title">
+            <a class="post__link" href={site.linkedin} target="_blank" rel="noopener">“{w.title}”<span class="sr-only"> (read on LinkedIn, opens in a new tab)</span></a>
+          </h3>
+          <p class="post__blurb">{w.blurb}</p>
+          <p class="post__foot" aria-hidden="true"><span>Read on LinkedIn</span><ArrowUpRight /></p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

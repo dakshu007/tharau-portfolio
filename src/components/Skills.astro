@@ -1,0 +1,73 @@
+---
+import Target from '@lucide/astro/icons/target';
+import ChartColumn from '@lucide/astro/icons/chart-column';
+import CodeXml from '@lucide/astro/icons/code-xml';
+import Presentation from '@lucide/astro/icons/presentation';
+import GraduationCap from '@lucide/astro/icons/graduation-cap';
+import BookOpen from '@lucide/astro/icons/book-open';
+import Award from '@lucide/astro/icons/award';
+import Plane from '@lucide/astro/icons/plane';
+import { skills, education, certifications, leadership } from '../data/site';
+
+const icons = {
+  target: Target,
+  chart: ChartColumn,
+  code: CodeXml,
+  presentation: Presentation,
+  grad: GraduationCap,
+  book: BookOpen,
+  award: Award,
+  plane: Plane,
+} as const;
+type IconKey = keyof typeof icons;
+
+const rows = [
+  ...education.map((e) => ({ ...e, kind: 'Education' })),
+  ...certifications.map((c) => ({ ...c, org: 'Certificate course', kind: 'Certification' })),
+  ...leadership.map((l) => ({ ...l, kind: 'Leadership' })),
+];
+---
+<section class="section cv" id="skills" aria-labelledby="skills-title" tabindex="-1">
+  <div class="container">
+    <div class="section__head section__head--split">
+      <div>
+        <p class="eyebrow" data-reveal><span class="eyebrow__num">05</span> Toolkit</p>
+        <h2 id="skills-title" class="h2" data-reveal style="margin-top:24px">Marketer's instinct, <span class="grad-text">engineer's toolkit.</span></h2>
+      </div>
+      <p class="lead" data-reveal>A Computer Science degree means I'm as comfortable in a Power BI model or an n8n workflow as I am in a customer conversation.</p>
+    </div>
+
+    <div class="skills">
+      {skills.map((s, i) => {
+        const Icon = icons[s.icon as IconKey];
+        return (
+          <div class="skill" data-reveal style={`--d:${i * 80}`}>
+            <div class="skill__head"><Icon /><h3 class="h3">{s.group}</h3></div>
+            <ul class="skill__list">
+              {s.items.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+        );
+      })}
+    </div>
+
+    <div class="found">
+      <div>
+        <p class="eyebrow" data-reveal>Foundations</p>
+        <h3 class="h2" data-reveal style="margin-top:24px;font-size:clamp(2rem,4vw,3.25rem)">Education, credentials &amp; <span class="grad-text">leadership.</span></h3>
+      </div>
+      <ul class="found__list">
+        {rows.map((r) => {
+          const Icon = icons[r.icon as IconKey];
+          return (
+            <li class="found__row" data-reveal>
+              <span class="found__icon" aria-hidden="true"><Icon /></span>
+              <p class="found__title">{r.title} <small>{r.org}</small></p>
+              <p class="found__meta">{r.kind} · {r.meta}</p>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  </div>
+</section>
